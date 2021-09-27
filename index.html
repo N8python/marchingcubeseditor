@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Marching Cubes</title>
+    <script src="/lib/enable3d.framework.0.22.0-dev.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js" integrity="sha512-UFPpekaMf0TrCIkPv9mRT3reo/HzSjkOLq57Rtzb+E1ej1TRUOes6J/Ge4uZXyxWA9b4i5DqSZns79YaUoJ2kA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/lib/stats.js"></script>
+</head>
+
+<body>
+    <style>
+        * body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+    <label style="position:absolute;left:90%;transform:translate(-50%, -50%);top: 2.25%;">R:</label>
+    <label style="position:absolute;left:90%;transform:translate(-50%, -50%);top: 5.25%;">G:</label>
+    <label style="position:absolute;left:90%;transform:translate(-50%, -50%);top: 8.25%;">B:</label>
+    <label style="position:absolute;left:90%;transform:translate(-50%, -50%);top: 11.25%;">Brush Shape:</label>
+    <div id="rgbDisplay" style="position:absolute;left:calc(85% + 12.5px);transform:translate(-50%, -50%);top: 5%; width: 25px; height: 25px;background-color:white;border: 2px solid black;"></div>
+    <div style="position:absolute;left:90%;top: 2.25%;width:20%;height: 15%;" id="sliders">
+    </div>
+    <input style="position:absolute;left:95%;transform:translate(-50%, -50%);top: 2%;" id="r" type="range" min="0" max="1" step="0.01" value="1">
+    <input style="position:absolute;left:95%;transform:translate(-50%, -50%);top: 5%;" id="g" type="range" min="0" max="1" step="0.01" value="1">
+    <input style="position:absolute;left:95%;transform:translate(-50%, -50%);top: 8%;" id="b" type="range" min="0" max="1" step="0.01" value="1">
+    <select style="position:absolute;left:96%;transform:translate(-50%, -50%);top: 11.5%;" id="shape">
+        <option value="sphere">Sphere</option>
+        <option value="cube">Cube</option>      
+        <option value="cone">Cone</option>
+    </select>
+    <button style="position:absolute;left:92.5%;transform:translate(-50%, -50%);top: 16.5%;width:10%;" id="gltfExport">Export as GLTF</button>
+    <img id="crosshair" style="position: absolute; top:50%;left:50%;transform:translate(-50%, -50%);z-index:5;width:16px;height:16px;" src="crosshair.png"></img>
+    <script src="constants.js"></script>
+    <script src="gltfexporter.js"></script>
+    <script src="tritable.js"></script>
+    <script src="marchingcubes.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
